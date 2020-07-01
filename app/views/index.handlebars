@@ -1,0 +1,61 @@
+<div class="container">
+  <img class="center" src="assets/img/burger.png" alt="burger-image" />
+  <div class="row">
+    <!-- Undevoured Burgers -->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Burgers on the Menu</strong>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}} {{#unless devoured}}
+            <span><strong> {{this.burger_name}} </strong></span>
+            <button type="button" class="consumeBurger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}">
+              <span>Devour It!</span>
+            </button>
+            <hr />
+            {{/unless}} {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Devoured Burgers -->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Devoured Burgers</strong>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}} {{#if devoured}}
+            <span><strong> {{this.burger_name}} </strong></span>
+            <button type="button" class="emptyBurger btn btn-danger" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}">
+              <span class="fa fa-trash"></span>
+            </button>
+            <hr />
+            {{/if}} {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row -->
+  <panel>
+    <form class="text-center burger-text ">
+      <div class="form-group ">
+        <label for="newBurger">New Burger:</label>
+        <input type="text" id="newBurger" name="burger">
+
+        <button type="submit" id="addburger" class="btn btn-danger">Submit</button>
+      </div>
+</div>
+</form>
+<div class="text-center bottomText">
+  <h4 style="font-weight: bolder;">Enter a burger you want to eat, then click submit.</h4>
+</div>
+</panel>
+
+</div>
